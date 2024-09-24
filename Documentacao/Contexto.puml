@@ -1,4 +1,4 @@
-@startuml Venx_Solar
+@startuml Venx_Solar_Contexto
 !include  https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
 Person(usuario, "Cliente", "Cliente que irá interagir diretamente com o sistema")
