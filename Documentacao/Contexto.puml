@@ -1,0 +1,12 @@
+@startuml Venx_Solar
+!include  https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(usuario, "Cliente", "Cliente que irá interagir diretamente com o sistema")
+System(sistemaGestao, "Sistema de Gestão do desconto na fatura", "O sistema irá calcular o desconto na conta do cliente e consultar a API de cobrança")
+System_Ext(ApiCobranca, "Sistema de cobrança", "O sistema irá gerar um boleto para o cliente, com o desconto na conta de energia")
+
+Rel(usuario, sistemaGestao, "Usa")
+Rel(sistemaGestao, ApiCobranca, "Gera o boleto")
+
+@enduml
+
