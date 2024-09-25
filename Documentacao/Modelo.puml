@@ -1,0 +1,33 @@
+@startuml
+entity "Clientes" {
+  + id: int
+  + nome: string
+  + fatura_atual: float
+  + desconto: float
+  + valor_com_desconto: float
+}
+
+entity "Faturas" {
+  + id: int
+  + cliente_id: int
+  + data_emissao: date
+  + valor_fatura: float
+  + valor_com_desconto: float
+}
+
+entity "Boletos" {
+  + id: int
+  + cliente_id: int
+  + nome_beneficiario: string
+  + data_documento: date
+  + desconto: float
+  + nome_pagador: string
+  + valor_boleto: float
+  + data_vencimento: date
+  + status: string
+}
+
+Clientes ||--o{ Faturas: "possui"
+Faturas ||--o| Boletos: "gera"
+Clientes ||--o{ Boletos: "recebe"
+@enduml

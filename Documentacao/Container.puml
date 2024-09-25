@@ -1,5 +1,16 @@
 @startuml Venx_Solar_Container
 !include  https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
+Person_Ext(usuario, "Cliente", "Cliente que irá interagir diretamente com o sistema")
+Container(webapp, "Aplicação Web", "VueJs", "Frontend da aplicação")
+Container(mobileapp, "Aplicação Mobbile", "Flutter", "Frontend da aplicação mobile")
+Container(api, "API Backend", "AdonisJs", "API REST para funcionalidade de backend")
+ContainerDb(database, "Banco de dados", "PostgresSQL", "Armazena os dados do sistema")
+
+Rel(usuario, webapp, "Usa")
+Rel(usuario, mobileapp, "Usa")
+Rel(webapp, api, "Requisições HTTP")
+Rel(mobileapp, api, "Requisições HTTP")
+Rel(api, database, "Consulta(SQL)")
 
 @enduml
